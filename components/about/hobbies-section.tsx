@@ -1,60 +1,8 @@
 'use client'
 
-import { Gamepad2, Film, BookOpen, PenLine, Activity, Mountain } from 'lucide-react'
-import { PiTrophy, PiStarFour } from 'react-icons/pi'
 import { ScrollAnimation, StaggerContainer, StaggerItem } from '@/components/scroll-animation'
 import { SectionHeading } from '@/components/ui/section-heading'
-
-const hobbies = [
-  {
-    icon: PiTrophy,
-    name: 'football',
-    description: 'watching, arguing tactics, praying barça holds it together',
-    tags: ['la liga', 'premier league', 'tactics']
-  },
-  {
-    icon: Gamepad2,
-    name: 'gaming',
-    description: 'the other debugging session',
-    tags: ['strategy', 'open world']
-  },
-  {
-    icon: Film,
-    name: 'cinema',
-    description: 'hacksaw ridge, interstellar, the dark knight, taste certified',
-    tags: ['drama', 'sci-fi', 'thriller']
-  },
-  {
-    icon: BookOpen,
-    name: 'reading',
-    description: 'inputs that shape the outputs',
-    tags: ['tech', 'fiction', 'philosophy']
-  },
-  {
-    icon: PiStarFour,
-    name: 'astronomy',
-    description: 'scale that makes your problems feel tiny',
-    tags: ['cosmos', 'physics']
-  },
-  {
-    icon: PenLine,
-    name: 'sketching',
-    description: 'thinking with a pen',
-    tags: ['design', 'creative']
-  },
-  {
-    icon: Activity,
-    name: 'volleyball',
-    description: 'the non-digital sport',
-    tags: ['outdoor', 'sports']
-  },
-  {
-    icon: Mountain,
-    name: 'trekking',
-    description: 'touching grass, literally',
-    tags: ['outdoor', 'nature']
-  },
-]
+import { HOBBIES } from '@/lib/constants'
 
 export function HobbiesSection() {
   return (
@@ -75,7 +23,7 @@ export function HobbiesSection() {
         </ScrollAnimation>
 
         <StaggerContainer className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
-          {hobbies.map((hobby, index) => (
+          {HOBBIES.map((hobby, index) => (
             <StaggerItem key={index} className="group pb-6 border-b border-[rgba(255,255,255,0.06)] relative transition-all duration-300 hover:scale-[1.02] bg-transparent z-0 hover:z-10">
               <div className="flex items-start gap-3 mb-3">
                 <hobby.icon size={14} strokeWidth={1.5} className="text-[#6a6a6a] shrink-0 mt-0.5 transition-all duration-300 group-hover:text-[#e2e2e2] group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" />

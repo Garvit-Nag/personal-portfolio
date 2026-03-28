@@ -106,12 +106,24 @@
 /* Section styles */
 .section-base {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 100px 0;
+  padding: 60px 0;
+}
+
+@media (min-width: 768px) {
+  .section-base {
+    padding: 100px 0;
+  }
 }
 
 .section-alt {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 100px 0;
+  padding: 60px 0;
+}
+
+@media (min-width: 768px) {
+  .section-alt {
+    padding: 100px 0;
+  }
 }
 
 /* Glass card */

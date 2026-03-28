@@ -37,7 +37,7 @@ export function FeaturedWorkSection() {
               <div className="glass-card group">
                 {/* Featured Badge */}
                 <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-                  <span className="font-mono text-[9px] tracking-[0.1em] border border-[rgba(255,255,255,0.15)] rounded px-2 py-1 text-[#9a9a9a]">
+                  <span className="font-mono text-[9px] tracking-widest border border-[rgba(255,255,255,0.15)] rounded px-2 py-1 text-[#9a9a9a]">
                     featured
                   </span>
                   <span className="w-1 h-1 rounded-full bg-[#e2e2e2] pulse-dot" />
@@ -63,7 +63,7 @@ export function FeaturedWorkSection() {
                   <div className="flex items-center gap-4 mt-4">
                     <div className="flex items-center gap-1.5">
                       <Calendar size={14} strokeWidth={1.5} className="text-[#4a4a4a]" />
-                      <span className="font-mono text-[10px] tracking-[0.1em] text-[#4a4a4a]">
+                      <span className="font-mono text-[10px] tracking-widest text-[#4a4a4a]">
                         {project.year}
                       </span>
                     </div>
@@ -82,7 +82,7 @@ export function FeaturedWorkSection() {
                       <Link 
                         href={project.github} 
                         target="_blank"
-                        className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.1em] lowercase opacity-40 hover:opacity-100 transition-opacity"
+                        className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest lowercase opacity-40 hover:opacity-100 transition-opacity"
                       >
                         <Github size={14} strokeWidth={1.5} />
                         code
@@ -92,7 +92,7 @@ export function FeaturedWorkSection() {
                       <Link 
                         href={project.live} 
                         target="_blank"
-                        className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.1em] lowercase opacity-40 hover:opacity-100 transition-opacity"
+                        className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest lowercase opacity-40 hover:opacity-100 transition-opacity"
                       >
                         <ExternalLink size={14} strokeWidth={1.5} />
                         live
@@ -107,14 +107,14 @@ export function FeaturedWorkSection() {
 
         {/* View All Button */}
         <ScrollAnimation delay={2} className="mt-16 flex items-center justify-center w-full">
-          <div className="flex-1 max-w-[200px] h-px bg-gradient-to-r from-transparent to-[rgba(255,255,255,0.15)] mr-6 hidden md:block" />
+          <div className="flex-1 max-w-[200px] h-px bg-linear-to-r from-transparent to-[rgba(255,255,255,0.15)] mr-6 hidden md:block" />
           <Link href="/build" className="bordered-button group inline-flex">
             <span className="flex items-center gap-2 group-hover:scale-105 transition-transform duration-300">
               view all work
               <ArrowRight size={14} strokeWidth={1.5} />
             </span>
           </Link>
-          <div className="flex-1 max-w-[200px] h-px bg-gradient-to-l from-transparent to-[rgba(255,255,255,0.15)] ml-6 hidden md:block" />
+          <div className="flex-1 max-w-[200px] h-px bg-linear-to-l from-transparent to-[rgba(255,255,255,0.15)] ml-6 hidden md:block" />
         </ScrollAnimation>
       </div>
     </section>

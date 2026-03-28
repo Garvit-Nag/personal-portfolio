@@ -9,10 +9,10 @@ export function Footer() {
     <footer className="bg-[#080808] border-t border-[rgba(255,255,255,0.05)] pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-12 mb-16">
-          <div className="max-w-[420px] pr-8 lg:pr-16">
+          <div className="max-w-[420px] pr-0 md:pr-8 lg:pr-16 text-center md:text-left mx-auto md:mx-0">
             <Link
               href="/"
-              className="font-sans font-bold text-[18px] text-[#e2e2e2] mb-6 block hover:opacity-80 hover:scale-105 origin-left transition-all duration-300 w-fit"
+              className="font-sans font-bold text-[18px] text-[#e2e2e2] mb-6 block hover:opacity-80 hover:scale-105 origin-left transition-all duration-300 w-fit mx-auto md:mx-0"
             >
               gn.
             </Link>
@@ -22,7 +22,7 @@ export function Footer() {
             </p>
             <a
               href="mailto:garvit1505@gmail.com"
-              className="inline-flex items-center gap-2 font-mono text-[12px] tracking-[0.1em] lowercase text-[#e2e2e2] border border-[rgba(255,255,255,0.1)] rounded-md px-5 py-2.5 hover:bg-[rgba(255,255,255,0.05)] transition-colors group"
+              className="inline-flex items-center gap-2 font-mono text-[12px] tracking-widest lowercase text-[#e2e2e2] border border-[rgba(255,255,255,0.1)] rounded-md px-5 py-2.5 hover:bg-[rgba(255,255,255,0.05)] transition-colors group"
             >
               <span className="flex items-center gap-2 group-hover:scale-105 transition-transform duration-300">
                 let's talk
@@ -31,11 +31,11 @@ export function Footer() {
             </a>
           </div>
 
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 items-center md:items-start">
             <span className="font-mono text-xs tracking-[0.15em] text-[#4a4a4a] uppercase">
               navigate
             </span>
-            <div className="flex flex-col gap-3 font-mono text-[13px] tracking-[0.1em] lowercase text-[#7a7a7a] items-start">
+            <div className="flex flex-col gap-3 font-mono text-[13px] tracking-widest lowercase text-[#7a7a7a] items-center md:items-start">
               <Link
                 href="/"
                 className="hover:text-[#e2e2e2] hover:scale-105 origin-left transition-all duration-300"
@@ -49,7 +49,7 @@ export function Footer() {
                 ~/about
               </Link>
               <Link
-                href="/builds"
+                href="/build"
                 className="hover:text-[#e2e2e2] hover:scale-105 origin-left transition-all duration-300"
               >
                 ~/builds
@@ -63,7 +63,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 items-center md:items-start">
             <span className="font-mono text-xs tracking-[0.15em] text-[#4a4a4a] uppercase">
               connect
             </span>
@@ -100,7 +100,7 @@ export function Footer() {
         </div>
 
         {/* Footer bottom */}
-        <div className="flex items-center justify-center pt-6 border-t border-[rgba(255,255,255,0.05)] font-mono text-[12px] tracking-[0.05em] text-[#8a8a8a]">
+        <div className="flex items-center justify-center pt-6 border-t border-[rgba(255,255,255,0.05)] font-mono text-[11px] sm:text-[12px] tracking-[0.05em] text-[#8a8a8a] text-center">
           <span>gn. · made with way too many console logs · 2026</span>
         </div>
       </div>

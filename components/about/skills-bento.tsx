@@ -1,89 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { Terminal, Monitor, ArrowRight, Database, Sun, Code2 } from 'lucide-react'
 import { ScrollAnimation } from '@/components/scroll-animation'
 import { SectionHeading } from '@/components/ui/section-heading'
-
-const skillRows = [
-  {
-    icon: Terminal,
-    name: 'Languages',
-    hint: 'foundation',
-    chips: [
-      { label: 'Python', hi: true },
-      { label: 'TypeScript', hi: true },
-      { label: 'JavaScript', hi: true },
-      { label: 'SQL', hi: false },
-      { label: 'C / C++', hi: false },
-    ],
-  },
-  {
-    icon: Monitor,
-    name: 'Frontend',
-    hint: 'what users see',
-    chips: [
-      { label: 'Next.js', hi: true },
-      { label: 'React', hi: true },
-      { label: 'Tailwind CSS', hi: true },
-      { label: 'Framer Motion', hi: false },
-    ],
-  },
-  {
-    icon: ArrowRight,
-    name: 'Backend & APIs',
-    hint: 'what powers it',
-    chips: [
-      { label: 'FastAPI', hi: true },
-      { label: 'Flask', hi: true },
-      { label: 'Express.js', hi: false },
-      { label: 'Appwrite', hi: false },
-      { label: 'Firebase', hi: false },
-      { label: 'Clerk', hi: false },
-      { label: 'Stripe', hi: false },
-    ],
-  },
-  {
-    icon: Database,
-    name: 'Data & Storage',
-    hint: 'persistence layer',
-    chips: [
-      { label: 'PostgreSQL', hi: true },
-      { label: 'MongoDB', hi: true },
-      { label: 'Pinecone', hi: true },
-      { label: 'Redis', hi: false },
-      { label: 'Supabase', hi: false },
-    ],
-  },
-  {
-    icon: Sun,
-    name: 'AI / ML',
-    hint: 'intelligence',
-    chips: [
-      { label: 'TensorFlow', hi: true },
-      { label: 'Scikit-learn', hi: true },
-      { label: 'Keras', hi: false },
-      { label: 'Pandas', hi: false },
-      { label: 'NumPy', hi: false },
-      { label: 'Matplotlib', hi: false },
-      { label: 'Gemini API', hi: false },
-    ],
-  },
-  {
-    icon: Code2,
-    name: 'DevOps & Tooling',
-    hint: 'ship it',
-    chips: [
-      { label: 'Docker', hi: true },
-      { label: 'Git / GitHub', hi: true },
-      { label: 'AWS', hi: false },
-      { label: 'Vercel', hi: false },
-      { label: 'Linux / Unix', hi: false },
-      { label: 'VS Code', hi: false },
-      { label: 'PowerShell', hi: false },
-    ],
-  },
-]
+import { SKILL_ROWS } from '@/lib/constants'
 
 export function SkillsBento() {
   const [hoveredCat, setHoveredCat] = useState<string | null>(null)
@@ -105,7 +25,7 @@ export function SkillsBento() {
         </ScrollAnimation>
 
         <div className="mt-6 border-t border-[rgba(255,255,255,0.1)]">
-          {skillRows.map((row) => (
+          {SKILL_ROWS.map((row) => (
             <div
               key={row.name}
               onMouseEnter={() => setHoveredCat(row.name)}
@@ -116,7 +36,7 @@ export function SkillsBento() {
             >
               {/* Left — icon + label */}
               <div className="flex items-center gap-3 py-5 sm:pr-6 sm:border-r sm:border-[rgba(255,255,255,0.06)]">
-                <div className={`w-[34px] h-[34px] flex-shrink-0 border rounded-lg flex items-center justify-center transition-all duration-180 ${
+                <div className={`w-[34px] h-[34px] shrink-0 border rounded-lg flex items-center justify-center transition-all duration-180 ${
                   hoveredCat === row.name
                     ? 'border-[rgba(255,255,255,0.28)] text-[#c8c8c8]'
                     : 'border-[rgba(255,255,255,0.12)] text-[#6a6a6a]'
@@ -129,7 +49,7 @@ export function SkillsBento() {
                   }`}>
                     {row.name}
                   </p>
-                  <p className={`font-mono text-[10px] tracking-[0.1em] mt-0.5 transition-colors duration-180 ${
+                  <p className={`font-mono text-[10px] tracking-widest mt-0.5 transition-colors duration-180 ${
                     hoveredCat === row.name ? 'text-[#787878]' : 'text-[#4a4a4a]'
                   }`}>
                     {row.hint}

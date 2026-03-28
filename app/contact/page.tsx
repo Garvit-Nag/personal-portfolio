@@ -1,58 +1,32 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { Github, Linkedin, Instagram, Calendar } from 'lucide-react'
-import { PiPaperPlaneTilt, PiEnvelopeSimple } from 'react-icons/pi'
-import { motion } from 'framer-motion'
-import { ScrollAnimation } from '@/components/scroll-animation'
-import { Footer } from '@/components/footer'
-import { SectionHeading } from '@/components/ui/section-heading'
-
-const contactLinks = [
-  {
-    icon: Github,
-    label: 'github',
-    value: 'Garvit-Nag',
-    href: 'https://github.com/Garvit-Nag'
-  },
-  {
-    icon: PiEnvelopeSimple,
-    label: 'email',
-    value: 'garvit1505@gmail.com',
-    href: 'mailto:garvit1505@gmail.com'
-  },
-  {
-    icon: Linkedin,
-    label: 'linkedin',
-    value: 'garvit-nag',
-    href: 'https://linkedin.com/in/garvit-nag'
-  },
-  {
-    icon: Instagram,
-    label: 'instagram',
-    value: '@garwiitt',
-    href: 'https://instagram.com/garwiitt'
-  },
-]
+import { useState } from "react";
+import Link from "next/link";
+import { Calendar } from "lucide-react";
+import { PiPaperPlaneTilt } from "react-icons/pi";
+import { motion } from "framer-motion";
+import { ScrollAnimation } from "@/components/scroll-animation";
+import { Footer } from "@/components/footer";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { CONTACT_LINKS } from "@/lib/constants";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission
-  }
+  };
 
   return (
     <>
       {/* Header Section */}
-      <section 
+      <section
         data-section="1"
         className="min-h-[60vh] flex items-center bg-transparent pt-24 pb-24"
       >
@@ -60,7 +34,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: 'easeOut' }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
           >
             <SectionHeading label="reach out" />
           </motion.div>
@@ -68,12 +42,12 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: 'easeOut', delay: 0.1 }}
+            transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
           >
-            <h1 className="font-sans font-bold text-[clamp(48px,5.5vw,76px)] text-[#e2e2e2] tracking-[-0.02em] leading-[1.1]">
+            <h1 className="font-sans font-bold text-[clamp(36px,5.5vw,76px)] text-[#e2e2e2] tracking-[-0.02em] leading-[1.1]">
               Ready to collaborate?
             </h1>
-            <h2 className="font-sans font-bold text-[clamp(48px,5.5vw,76px)] text-[#303030] tracking-[-0.02em] leading-[1.1]">
+            <h2 className="font-sans font-bold text-[clamp(36px,5.5vw,76px)] text-[#303030] tracking-[-0.02em] leading-[1.1]">
               I&apos;d love to hear from you.
             </h2>
           </motion.div>
@@ -81,30 +55,30 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: 'easeOut', delay: 0.2 }}
+            transition={{ duration: 0.55, ease: "easeOut", delay: 0.2 }}
             className="mt-10 max-w-[540px]"
           >
             <p className="font-sans text-base leading-[1.9] text-[#9a9a9a]">
-              currently available and actively exploring what&apos;s next. full-time roles, meaningful projects, and the right collaborations.
+              currently available and actively exploring what&apos;s next.
+              full-time roles, meaningful projects, and the right
+              collaborations.
             </p>
             <p className="font-sans text-base leading-[1.9] text-[#9a9a9a] mt-3">
-              if you&apos;re building something worth caring about, let&apos;s talk. i respond within 24 hours.
+              if you&apos;re building something worth caring about, let&apos;s
+              talk. i respond within 24 hours.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Links + Form Section */}
-      <section 
-        data-section="2"
-        className="section-alt"
-      >
+      <section data-section="2" className="section-alt">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
             {/* Left - Contact Links + Schedule */}
             <div className="flex flex-col">
               <ScrollAnimation>
-                {contactLinks.map((link) => (
+                {CONTACT_LINKS.map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
@@ -112,8 +86,12 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="group flex items-center gap-4 py-5 border-b border-[rgba(255,255,255,0.08)]"
                   >
-                    <div className="border border-[rgba(255,255,255,0.15)] rounded-lg p-2.5 flex items-center justify-center h-10 w-10 flex-shrink-0 group-hover:border-[rgba(255,255,255,0.3)] group-hover:bg-[rgba(255,255,255,0.04)] transition-all duration-180">
-                      <link.icon size={16} strokeWidth={1.5} className="text-[#9a9a9a]" />
+                    <div className="border border-[rgba(255,255,255,0.15)] rounded-lg p-2.5 flex items-center justify-center h-10 w-10 shrink-0 group-hover:border-[rgba(255,255,255,0.3)] group-hover:bg-[rgba(255,255,255,0.04)] transition-all duration-180">
+                      <link.icon
+                        size={16}
+                        strokeWidth={1.5}
+                        className="text-[#9a9a9a]"
+                      />
                     </div>
                     <span className="font-mono text-xs tracking-[0.2em] text-[#6a6a6a] uppercase">
                       {link.label}
@@ -130,8 +108,12 @@ export default function ContactPage() {
                 <div className="border border-[rgba(255,255,255,0.08)] rounded-xl p-6 flex-1 flex flex-col">
                   {/* Header */}
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="border border-[rgba(255,255,255,0.15)] rounded-lg p-2 flex items-center justify-center h-9 w-9 flex-shrink-0">
-                      <Calendar size={15} strokeWidth={1.5} className="text-[#9a9a9a]" />
+                    <div className="border border-[rgba(255,255,255,0.15)] rounded-lg p-2 flex items-center justify-center h-9 w-9 shrink-0">
+                      <Calendar
+                        size={15}
+                        strokeWidth={1.5}
+                        className="text-[#9a9a9a]"
+                      />
                     </div>
                     <h3 className="font-sans font-semibold text-[16px] text-[#d8d8d8] tracking-[-0.01em]">
                       Schedule a meeting
@@ -139,7 +121,9 @@ export default function ContactPage() {
                   </div>
 
                   <p className="font-sans text-[13px] text-[#7a7a7a] leading-[1.8] mb-6">
-                    if a message doesn&apos;t cut it, let&apos;s put something on the calendar. a focused conversation beats a hundred back-and-forths.
+                    if a message doesn&apos;t cut it, let&apos;s put something
+                    on the calendar. a focused conversation beats a hundred
+                    back-and-forths.
                   </p>
 
                   <div className="mt-auto pt-4">
@@ -176,7 +160,9 @@ export default function ContactPage() {
                         type="text"
                         placeholder="your name"
                         value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, name: e.target.value })
+                        }
                         className="form-input"
                         required
                       />
@@ -189,7 +175,9 @@ export default function ContactPage() {
                         type="email"
                         placeholder="your email"
                         value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
                         className="form-input"
                         required
                       />
@@ -202,7 +190,9 @@ export default function ContactPage() {
                         type="text"
                         placeholder="what's this about"
                         value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, subject: e.target.value })
+                        }
                         className="form-input"
                         autoComplete="off"
                       />
@@ -214,7 +204,9 @@ export default function ContactPage() {
                       <textarea
                         placeholder="what's on your mind"
                         value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, message: e.target.value })
+                        }
                         className="form-input min-h-[80px] resize-none"
                         required
                       />
@@ -239,5 +231,5 @@ export default function ContactPage() {
 
       <Footer />
     </>
-  )
+  );
 }
