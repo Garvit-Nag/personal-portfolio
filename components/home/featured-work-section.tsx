@@ -45,9 +45,17 @@ export function FeaturedWorkSection() {
 
                 {/* Thumbnail */}
                 <div className="relative aspect-video bg-[#0d0d0d] rounded-t-[12px] overflow-hidden">
-                  <p className="absolute inset-0 flex items-center justify-center font-sans font-bold text-[32px] text-[#e2e2e2] opacity-[0.06]">
-                    {project.name}
-                  </p>
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      className="absolute inset-0 w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <p className="absolute inset-0 flex items-center justify-center font-sans font-bold text-[32px] text-[#e2e2e2] opacity-[0.06]">
+                      {project.name}
+                    </p>
+                  )}
                 </div>
 
                 {/* Body */}
