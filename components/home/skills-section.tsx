@@ -6,39 +6,7 @@ import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { ScrollAnimation } from '@/components/scroll-animation'
 import { SectionHeading } from '@/components/ui/section-heading'
-
-const steps = [
-  {
-    philosophy: "it all starts with the right language.",
-    description: "the ones i actually think in. python for ai and scripting, typescript/js for the web side of everything.",
-    chips: ['Python', 'TypeScript', 'JavaScript', 'SQL', 'C / C++'],
-    label: 'languages',
-  },
-  {
-    philosophy: "if the interface needs explaining, it's broken.",
-    description: "i care about things that feel effortless to use. next.js is my default. fast, clean, no unnecessary weight.",
-    chips: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion'],
-    label: 'frontend',
-  },
-  {
-    philosophy: "fast apis don't need apologies.",
-    description: "quiet, reliable, no drama. i pick the right tool rather than the popular one.",
-    chips: ['FastAPI', 'Flask', 'Express.js', 'Appwrite', 'Firebase', 'Clerk', 'Stripe'],
-    label: 'backend & apis',
-  },
-  {
-    philosophy: "data that isn't structured isn't useful.",
-    description: "relational or not, structure it right from the start. lately deep in vector search and rag.",
-    chips: ['PostgreSQL', 'MongoDB', 'Pinecone', 'Redis', 'Supabase'],
-    label: 'data & storage',
-  },
-  {
-    philosophy: "real ml. from training to deployment.",
-    description: "shipped actual ai-native apps, not just wrappers. rag pipelines, model integrations. done the work.",
-    chips: ['TensorFlow', 'Scikit-learn', 'Keras', 'Pandas', 'NumPy', 'Matplotlib', 'Gemini API'],
-    label: 'ai / ml',
-  },
-]
+import { SKILL_STEPS } from '@/lib/constants'
 
 export function SkillsSection() {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null)
@@ -61,7 +29,7 @@ export function SkillsSection() {
 
           {/* Left panel — philosophy steps */}
           <div>
-            {steps.map((step, i) => (
+            {SKILL_STEPS.map((step, i) => (
               <motion.div
                 key={i}
                 whileHover={{ x: 6 }}
@@ -88,7 +56,7 @@ export function SkillsSection() {
           {/* Right panel — flex column so last card fills remaining height */}
           <div className="flex flex-col gap-3 h-full">
             {/* Row 1: Languages + Frontend */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[0, 1].map((i) => (
                 <div
                   key={i}
@@ -97,15 +65,15 @@ export function SkillsSection() {
                   }`}
                 >
                   <p className="font-mono text-[10px] tracking-[0.12em] text-[#6a6a6a] uppercase mb-3">
-                    {steps[i].label}
+                    {SKILL_STEPS[i].label}
                   </p>
                   {hoveredStep === i ? (
                     <p className="font-sans text-[12px] text-[#6a6a6a] leading-[1.7]">
-                      {steps[i].description}
+                      {SKILL_STEPS[i].description}
                     </p>
                   ) : (
                     <div className="flex flex-wrap gap-1.5">
-                      {steps[i].chips.map((chip) => (
+                      {SKILL_STEPS[i].chips.map((chip) => (
                         <span key={chip} className="glass-chip">{chip}</span>
                       ))}
                     </div>
@@ -115,7 +83,7 @@ export function SkillsSection() {
             </div>
 
             {/* Row 2: Backend + Data */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[2, 3].map((i) => (
                 <div
                   key={i}
@@ -124,15 +92,15 @@ export function SkillsSection() {
                   }`}
                 >
                   <p className="font-mono text-[10px] tracking-[0.12em] text-[#6a6a6a] uppercase mb-3">
-                    {steps[i].label}
+                    {SKILL_STEPS[i].label}
                   </p>
                   {hoveredStep === i ? (
                     <p className="font-sans text-[12px] text-[#6a6a6a] leading-[1.7]">
-                      {steps[i].description}
+                      {SKILL_STEPS[i].description}
                     </p>
                   ) : (
                     <div className="flex flex-wrap gap-1.5">
-                      {steps[i].chips.map((chip) => (
+                      {SKILL_STEPS[i].chips.map((chip) => (
                         <span key={chip} className="glass-chip">{chip}</span>
                       ))}
                     </div>
@@ -148,15 +116,15 @@ export function SkillsSection() {
               }`}
             >
               <p className="font-mono text-[10px] tracking-[0.12em] text-[#6a6a6a] uppercase mb-3">
-                {steps[4].label}
+                {SKILL_STEPS[4].label}
               </p>
               {hoveredStep === 4 ? (
                 <p className="font-sans text-[12px] text-[#6a6a6a] leading-[1.7]">
-                  {steps[4].description}
+                  {SKILL_STEPS[4].description}
                 </p>
               ) : (
                 <div className="flex flex-wrap gap-1.5">
-                  {steps[4].chips.map((chip) => (
+                  {SKILL_STEPS[4].chips.map((chip) => (
                     <span key={chip} className="glass-chip">{chip}</span>
                   ))}
                 </div>
@@ -166,14 +134,14 @@ export function SkillsSection() {
         </div>
 
         <ScrollAnimation delay={2} className="mt-16 flex items-center justify-center w-full">
-          <div className="flex-1 max-w-[200px] h-px bg-gradient-to-r from-transparent to-[rgba(255,255,255,0.15)] mr-6 hidden md:block" />
+          <div className="flex-1 max-w-[200px] h-px bg-linear-to-r from-transparent to-[rgba(255,255,255,0.15)] mr-6 hidden md:block" />
           <Link href="/about" className="bordered-button group inline-flex">
             <span className="flex items-center gap-2 group-hover:scale-105 transition-transform duration-300">
               see the full stack
               <ArrowRight size={14} strokeWidth={1.5} />
             </span>
           </Link>
-          <div className="flex-1 max-w-[200px] h-px bg-gradient-to-l from-transparent to-[rgba(255,255,255,0.15)] ml-6 hidden md:block" />
+          <div className="flex-1 max-w-[200px] h-px bg-linear-to-l from-transparent to-[rgba(255,255,255,0.15)] ml-6 hidden md:block" />
         </ScrollAnimation>
       </div>
     </section>
