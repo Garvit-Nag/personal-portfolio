@@ -252,7 +252,7 @@ export const SKILL_STEPS: SkillStepType[] = [
   },
   {
     philosophy: "if the interface needs explaining, it's broken.",
-    description: "i care about things that feel effortless to use. next.js is my default. fast, clean, no unnecessary weight.",
+    description: "i obsess over the small stuff so users don't have to think. pixel-level attention, smooth interactions, zero jank.",
     chips: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion'],
     label: 'frontend',
   },

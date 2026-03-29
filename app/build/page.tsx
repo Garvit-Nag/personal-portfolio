@@ -66,7 +66,7 @@ export default function BuildPage() {
             transition={{ duration: 0.55, ease: 'easeOut', delay: 0.2 }}
             className="font-sans font-normal text-[clamp(14px,1.8vw,16px)] leading-[1.9] text-[#6a6a6a] mt-8 max-w-[600px]"
           >
-            a collection of projects ranging from ai systems to full-stack platforms. all built because they seemed genuinely useful.
+            projects i've shipped over the past couple of years. some for hackathons, some just to learn.
           </motion.p>
 
           {/* Stack Tag Filter */}
@@ -74,16 +74,16 @@ export default function BuildPage() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: 'easeOut', delay: 0.3 }}
-            className="flex flex-wrap gap-2 mt-10 mb-10"
+            className="flex flex-wrap gap-2.5 mt-10 mb-10"
           >
             {availableTags.map((tag) => (
               <button
                 key={tag}
                 onClick={() => handleTagClick(tag)}
-                className={`font-mono text-[9px] tracking-widest px-2.5 py-1 rounded transition-all duration-200 ${
+                className={`filter-tag ${
                   activeTag === tag
-                    ? 'bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.35)] text-[#e2e2e2]'
-                    : 'bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] text-[#4a4a4a] hover:text-[#9a9a9a] hover:border-[rgba(255,255,255,0.12)]'
+                    ? 'filter-tag--active'
+                    : 'filter-tag--inactive'
                 }`}
               >
                 {tag}
@@ -92,9 +92,9 @@ export default function BuildPage() {
             {activeTag && (
               <button
                 onClick={() => setActiveTag(null)}
-                className="font-mono text-[9px] tracking-widest px-2.5 py-1 rounded bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] text-[#6a6a6a] hover:text-[#e2e2e2] hover:border-[rgba(255,255,255,0.2)] transition-all duration-200 flex items-center gap-1"
+                className="filter-tag filter-tag--inactive flex items-center gap-1.5"
               >
-                <X size={10} strokeWidth={1.5} />
+                <X size={12} strokeWidth={1.5} />
                 clear
               </button>
             )}
@@ -113,10 +113,10 @@ export default function BuildPage() {
                 <motion.div
                   key={project.slug}
                   layout
-                  className="glass-card group"
+                  className="project-card group flex flex-col"
                 >
                   {/* Thumbnail */}
-                  <div className="relative aspect-video bg-[#0d0d0d] rounded-t-[10px] overflow-hidden transition-all duration-300 group-hover:brightness-150">
+                  <div className="card-thumbnail aspect-video bg-[#0d0d0d] rounded-t-[10px]">
                     {project.image ? (
                       <img
                         src={project.image}
@@ -131,50 +131,36 @@ export default function BuildPage() {
                   </div>
 
                   {/* Body */}
-                  <div className="p-5 lg:p-6">
+                  <div className="p-5 lg:p-6 flex flex-col flex-1">
                     {/* Top row */}
-                    <div className="flex items-center justify-end">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-sans font-semibold text-[17px] text-[#e2e2e2]">
+                        {project.name}
+                      </h3>
                       <div className="flex items-center gap-1.5">
-                        <Calendar size={14} strokeWidth={1.5} className="text-[#4a4a4a]" />
-                        <span className="font-mono text-[10px] tracking-widest text-[#4a4a4a]">
+                        <Calendar size={13} strokeWidth={1.5} className="text-[#5a5a5a]" />
+                        <span className="font-mono text-[10px] tracking-widest text-[#5a5a5a]">
                           {project.year}
                         </span>
                       </div>
                     </div>
 
-                    <h3 className="font-sans font-semibold text-[17px] text-[#e2e2e2] mt-2">
-                      {project.name}
-                    </h3>
-                    <p className="font-sans text-[12px] text-[#6a6a6a] mt-1">
-                      {project.tagline}
+                    <p className="font-sans text-[12.5px] text-[#7a7a7a] mt-1.5 leading-[1.5]">
+                      {project.tagline.replace(/\.$/, '')}
                     </p>
 
-                    {/* Stack chips — clickable */}
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {project.stack.map((tech) => (
-                        <button
-                          key={tech}
-                          onClick={() => handleTagClick(tech)}
-                          className={`glass-chip cursor-pointer transition-all duration-200 ${
-                            activeTag === tech
-                              ? 'border-[rgba(255,255,255,0.35)] text-[#e2e2e2]'
-                              : 'hover:border-[rgba(255,255,255,0.16)] hover:text-[#e2e2e2]'
-                          }`}
-                        >
-                          {tech}
-                        </button>
-                      ))}
-                    </div>
+                    {/* Spacer to push links to bottom with minimum gap */}
+                    <div className="flex-1 min-h-5" />
 
                     {/* Links */}
-                    <div className="flex items-center gap-4 mt-4 pt-4 border-t border-[rgba(255,255,255,0.05)]">
+                    <div className="flex items-center gap-5 pt-5 border-t border-[rgba(255,255,255,0.06)]">
                       {project.github && (
                         <Link 
                           href={project.github} 
                           target="_blank"
-                          className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest lowercase opacity-40 hover:opacity-100 transition-opacity"
+                          className="card-link"
                         >
-                          <Github size={14} strokeWidth={1.5} />
+                          <Github size={13} strokeWidth={1.5} />
                           code
                         </Link>
                       )}
@@ -182,17 +168,17 @@ export default function BuildPage() {
                         <Link 
                           href={project.live} 
                           target="_blank"
-                          className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest lowercase opacity-40 hover:opacity-100 transition-opacity"
+                          className="card-link"
                         >
-                          <ExternalLink size={14} strokeWidth={1.5} />
+                          <ExternalLink size={13} strokeWidth={1.5} />
                           live
                         </Link>
                       )}
                       <Link 
                         href={`/build/${project.slug}`}
-                        className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest lowercase opacity-40 hover:opacity-100 transition-opacity"
+                        className="card-link ml-auto"
                       >
-                        <Info size={14} strokeWidth={1.5} />
+                        <Info size={13} strokeWidth={1.5} />
                         view details
                       </Link>
                     </div>
