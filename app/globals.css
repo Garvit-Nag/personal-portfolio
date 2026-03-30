@@ -154,6 +154,30 @@ html.light .bg-footer-base {
   background-color: rgba(245, 245, 245, 0.8);
 }
 
+.bg-nav-base {
+  background-color: rgba(8, 8, 8, 0.85);
+}
+
+html.light .bg-nav-base {
+  background-color: rgba(245, 245, 245, 0.85);
+}
+
+.bg-nav-mobile {
+  background-color: rgba(8, 8, 8, 0.92);
+}
+
+html.light .bg-nav-mobile {
+  background-color: rgba(245, 245, 245, 0.92);
+}
+
+.border-nav-base {
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+html.light .border-nav-base {
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
 @theme inline {
   --font-sans: 'Sora', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
