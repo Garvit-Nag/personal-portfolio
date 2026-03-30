@@ -6,24 +6,23 @@ import { PiXLogo } from "react-icons/pi";
 
 export function Footer() {
   return (
-    <footer className="bg-footer-base border-t border-[rgba(255,255,255,0.05)] pt-16 pb-12">
+    <footer className="bg-[#080808] border-t border-[rgba(255,255,255,0.05)] pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-12 mb-16">
           <div className="max-w-[420px] pr-0 md:pr-8 lg:pr-16 text-center md:text-left mx-auto md:mx-0">
-          <div className="max-w-[420px] pr-0 md:pr-8 lg:pr-16 text-center md:text-left mx-auto md:mx-0">
             <Link
               href="/"
-              className="font-sans font-bold text-[18px] text-text-heading mb-6 block hover:opacity-80 hover:scale-105 origin-left transition-all duration-300 w-fit mx-auto md:mx-0"
+              className="font-sans font-bold text-[18px] text-[#e2e2e2] mb-6 block hover:opacity-80 hover:scale-105 origin-left transition-all duration-300 w-fit mx-auto md:mx-0"
             >
               gn.
             </Link>
-            <p className="font-sans text-[13px] text-text-secondary leading-[1.8] mb-6">
+            <p className="font-sans text-[13px] text-[#8a8a8a] leading-[1.8] mb-6">
               open to new opportunities, collaborations, or just a good
               conversation about tech and design.
             </p>
             <a
               href="mailto:garvit1505@gmail.com"
-              className="inline-flex items-center gap-2 font-mono text-[12px] tracking-widest lowercase text-text-heading border border-border-mid rounded-md px-5 py-2.5 hover:bg-surface-low transition-colors group"
+              className="inline-flex items-center gap-2 font-mono text-[12px] tracking-widest lowercase text-[#e2e2e2] border border-[rgba(255,255,255,0.1)] rounded-md px-5 py-2.5 hover:bg-[rgba(255,255,255,0.05)] transition-colors group"
             >
               <span className="flex items-center gap-2 group-hover:scale-105 transition-transform duration-300">
                 let's talk
@@ -33,47 +32,47 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-5 items-center md:items-start">
-            <span className="font-mono text-xs tracking-[0.15em] text-text-label uppercase">
+            <span className="font-mono text-xs tracking-[0.15em] text-[#4a4a4a] uppercase">
               navigate
             </span>
-            <div className="flex flex-col gap-3 font-mono text-[13px] tracking-widest lowercase text-text-muted items-center md:items-start">
+            <div className="flex flex-col gap-3 font-mono text-[13px] tracking-widest lowercase text-[#7a7a7a] items-center md:items-start">
               <Link
                 href="/"
-                className="hover:text-text-heading hover:scale-105 origin-left transition-all duration-300"
+                className="hover:text-[#e2e2e2] hover:scale-105 origin-left transition-all duration-300"
               >
                 ~/home
               </Link>
               <Link
                 href="/about"
-                className="hover:text-text-heading hover:scale-105 origin-left transition-all duration-300"
+                className="hover:text-[#e2e2e2] hover:scale-105 origin-left transition-all duration-300"
               >
-                ~/root
+                ~/about
               </Link>
               <Link
                 href="/build"
-                className="hover:text-text-heading hover:scale-105 origin-left transition-all duration-300"
+                className="hover:text-[#e2e2e2] hover:scale-105 origin-left transition-all duration-300"
               >
                 ~/builds
               </Link>
               <Link
                 href="/contact"
-                className="hover:text-text-heading hover:scale-105 origin-left transition-all duration-300"
+                className="hover:text-[#e2e2e2] hover:scale-105 origin-left transition-all duration-300"
               >
-                ~/ping
+                ~/contact
               </Link>
             </div>
           </div>
 
           <div className="flex flex-col gap-5 items-center md:items-start">
-            <span className="font-mono text-xs tracking-[0.15em] text-text-label uppercase">
+            <span className="font-mono text-xs tracking-[0.15em] text-[#4a4a4a] uppercase">
               connect
             </span>
-            <div className="flex flex-row gap-5 text-text-secondary items-center">
+            <div className="flex flex-row gap-5 text-[#8a8a8a] items-center">
               <a
                 href="https://github.com/Garvit-Nag"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-text-heading hover:scale-110 transition-all duration-300"
+                className="hover:text-[#e2e2e2] hover:scale-110 transition-all duration-300"
                 aria-label="Github"
               >
                 <Github size={18} />
@@ -82,7 +81,7 @@ export function Footer() {
                 href="https://linkedin.com/in/garvit-nag"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-text-heading hover:scale-110 transition-all duration-300"
+                className="hover:text-[#e2e2e2] hover:scale-110 transition-all duration-300"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={18} />
@@ -91,7 +90,7 @@ export function Footer() {
                 href="https://twitter.com/garvit1505"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-text-heading hover:scale-110 transition-all duration-300"
+                className="hover:text-[#e2e2e2] hover:scale-110 transition-all duration-300"
                 aria-label="X"
               >
                 <PiXLogo size={18} />
@@ -101,7 +100,7 @@ export function Footer() {
         </div>
 
         {/* Footer bottom */}
-        <div className="flex items-center justify-center pt-6 border-t border-border-subtle font-mono text-[11px] sm:text-[12px] tracking-[0.05em] text-text-secondary text-center">
+        <div className="flex items-center justify-center pt-6 border-t border-[rgba(255,255,255,0.05)] font-mono text-[11px] sm:text-[12px] tracking-[0.05em] text-[#8a8a8a] text-center">
           <span>gn. · made with way too many console logs · 2026</span>
         </div>
       </div>

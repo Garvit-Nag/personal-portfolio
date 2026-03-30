@@ -42,7 +42,7 @@ export function GlobalBackground() {
           mouseGravity="attract"
           mouseInfluence={220}
           glowIntensity={12}
-          className="w-full h-full text-[var(--star-color)]"
+          className="w-full h-full text-[#ffffff]"
         />
       </div>
     </motion.div>
