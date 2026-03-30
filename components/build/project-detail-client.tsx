@@ -48,7 +48,9 @@ export function ProjectDetailClient({ project }: ProjectDetailClientProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: 'easeOut', delay: 0.3 }}
         className="mt-6"
+        className="mt-6"
       >
+        <div className="accent-line" />
         <div className="accent-line" />
       </motion.div>
     </>

@@ -73,6 +73,9 @@ export function Navigation() {
         {/* Center Nav Links — desktop */}
         <div className="absolute left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
+        {/* Center Nav Links — desktop */}
+        <div className="absolute left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-8">
+          {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -149,6 +152,7 @@ export function Navigation() {
           <Link
             href="/Resume.pdf"
             target="_blank"
+            className="flex items-center gap-1.5 font-mono text-[13px] tracking-widest lowercase opacity-40 hover:opacity-100 hover:scale-[1.03] transition-all duration-300 cursor-target"
             className="flex items-center gap-1.5 font-mono text-[13px] tracking-widest lowercase opacity-40 hover:opacity-100 hover:scale-[1.03] transition-all duration-300 cursor-target"
           >
             <span className="flex items-center gap-1.5 align-middle">

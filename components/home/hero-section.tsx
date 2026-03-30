@@ -18,6 +18,7 @@ export function HeroSection() {
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 items-center min-h-screen">
           <div className="flex flex-col items-center lg:items-start justify-center text-center lg:text-left">
+          <div className="flex flex-col items-center lg:items-start justify-center text-center lg:text-left">
             <motion.p
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -66,6 +67,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, ease: 'easeOut', delay: 0.4 }}
+              className="flex items-center gap-4 flex-wrap justify-center lg:justify-start"
               className="flex items-center gap-4 flex-wrap justify-center lg:justify-start"
               suppressHydrationWarning
             >
@@ -148,6 +150,7 @@ export function HeroSection() {
         animate={{ opacity: 0.12 }}
         transition={{ duration: 0.55, ease: 'easeOut', delay: 0.6 }}
         className="absolute bottom-8 left-6 font-mono text-xs tracking-widest hidden sm:block"
+        className="absolute bottom-8 left-6 font-mono text-xs tracking-widest hidden sm:block"
         suppressHydrationWarning
       >
         © garvit nag 2026
@@ -156,6 +159,7 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.12 }}
         transition={{ duration: 0.55, ease: 'easeOut', delay: 0.6 }}
+        className="absolute bottom-8 right-6 font-mono text-xs tracking-widest hidden sm:block"
         className="absolute bottom-8 right-6 font-mono text-xs tracking-widest hidden sm:block"
         suppressHydrationWarning
       >

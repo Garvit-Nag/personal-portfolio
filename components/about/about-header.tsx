@@ -14,6 +14,7 @@ export function AboutHeader() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="text-center lg:text-left">
+        <div className="text-center lg:text-left">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,6 +40,7 @@ export function AboutHeader() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: 'easeOut', delay: 0.2 }}
+          className="max-w-[560px] mt-8 mx-auto lg:mx-0"
           className="max-w-[560px] mt-8 mx-auto lg:mx-0"
         >
           <p className="font-sans text-[16px] leading-[1.9] text-[var(--text-body)]">

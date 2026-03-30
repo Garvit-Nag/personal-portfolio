@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Github, ExternalLink, Wrench, ArrowRight, Calendar, Layers } from 'lucide-react'
+import { ArrowLeft, Github, ExternalLink, Wrench, ArrowRight, Calendar, Layers } from 'lucide-react'
 import { projects, getProjectBySlug } from '@/lib/projects'
 import { ProjectDetailClient } from '@/components/build/project-detail-client'
 import { Footer } from '@/components/footer'
@@ -54,6 +55,21 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
         )}
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 pt-24 pb-16">
+        className="relative pt-20 min-h-[60vh]"
+      >
+        {/* Background Image */}
+        {project.image && (
+          <div className="absolute inset-0 z-0">
+            <img
+              src={project.image}
+              alt={project.name}
+              className="w-full h-full object-cover object-top opacity-30"
+            />
+            <div className="detail-hero-overlay absolute inset-0" />
+          </div>
+        )}
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 pt-24 pb-16">
           <ProjectDetailClient project={project} />
         </div>
       </section>
@@ -61,6 +77,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       {/* Project Details Card */}
       <section
         data-section="2"
+        className="relative z-10 -mt-8"
         className="relative z-10 -mt-8"
       >
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
@@ -168,6 +185,8 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                 <span className="font-mono text-[11px] tracking-[0.08em] text-[var(--text-body)] group-hover:text-[var(--text-strong)] transition-colors">
                   {tech}
                 </span>
+              </div>
+            ))}
               </div>
             ))}
           </div>

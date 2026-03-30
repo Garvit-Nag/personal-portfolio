@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { ArrowRight, Github, ExternalLink, Calendar } from 'lucide-react'
+import { ArrowRight, Github, ExternalLink, Calendar } from 'lucide-react'
 import { ScrollAnimation, StaggerContainer, StaggerItem } from '@/components/scroll-animation'
 import { getFeaturedProjects } from '@/lib/projects'
 import { SectionHeading } from '@/components/ui/section-heading'
@@ -103,6 +104,7 @@ export function FeaturedWorkSection() {
                     </div>
                   </div>
                 </div>
+              </Link>
               </Link>
             </StaggerItem>
           ))}

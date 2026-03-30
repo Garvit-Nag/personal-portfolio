@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowUpRight, Briefcase, GraduationCap } from 'lucide-react'
 import { ScrollAnimation, StaggerContainer, StaggerItem } from '@/components/scroll-animation'
 import { EXPERIENCES, EDUCATION } from '@/lib/constants'
+import { EXPERIENCES, EDUCATION } from '@/lib/constants'
 
 export function ExperienceEducationSection() {
   return (
@@ -12,6 +13,7 @@ export function ExperienceEducationSection() {
       className="section-base"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-stretch">
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-stretch">
 
           {/* Left: Experience */}
@@ -30,9 +32,11 @@ export function ExperienceEducationSection() {
             <div className="border border-[var(--border-rest)] rounded-xl p-4 sm:p-6 flex-1">
               <StaggerContainer>
                 {EXPERIENCES.map((exp, index) => (
+                {EXPERIENCES.map((exp, index) => (
                   <StaggerItem key={index}>
                     <div className={`flex gap-4 sm:gap-5 py-6 ${index < EXPERIENCES.length - 1 ? 'border-b border-[var(--border-low)]' : ''}`}>
                       {/* Icon + Year */}
+                      <div className="w-[56px] sm:w-[72px] flex flex-col items-start shrink-0">
                       <div className="w-[56px] sm:w-[72px] flex flex-col items-start shrink-0">
                         <div className="w-9 flex flex-col items-center gap-2.5">
                           <div className="border border-[var(--border-strong)] rounded-lg p-2 flex items-center justify-center h-9 w-9">
@@ -93,7 +97,11 @@ export function ExperienceEducationSection() {
               <div className="flex flex-col justify-between flex-1 h-full gap-5">
                 {EDUCATION.map((edu, index) => (
                   <div key={index} className="flex gap-4 sm:gap-5 relative group flex-1">
+                {EDUCATION.map((edu, index) => (
+                  <div key={index} className="flex gap-4 sm:gap-5 relative group flex-1">
                     {/* Node */}
+                    <div className="w-[22px] shrink-0 flex flex-col items-center pt-1.5">
+                      <div className={`w-[10px] h-[10px] rounded-full border shrink-0 flex items-center justify-center transition-colors duration-300 ${
                     <div className="w-[22px] shrink-0 flex flex-col items-center pt-1.5">
                       <div className={`w-[10px] h-[10px] rounded-full border shrink-0 flex items-center justify-center transition-colors duration-300 ${
                         edu.current

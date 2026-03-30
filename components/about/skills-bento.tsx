@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ScrollAnimation } from '@/components/scroll-animation'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { SKILL_ROWS } from '@/lib/constants'
+import { SKILL_ROWS } from '@/lib/constants'
 
 export function SkillsBento() {
   const [hoveredCat, setHoveredCat] = useState<string | null>(null)

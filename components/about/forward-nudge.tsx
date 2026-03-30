@@ -1,5 +1,9 @@
 "use client";
+"use client";
 
+import Link from "next/link";
+import { ArrowRight, Mail } from "lucide-react";
+import { ScrollAnimation } from "@/components/scroll-animation";
 import Link from "next/link";
 import { ArrowRight, Mail } from "lucide-react";
 import { ScrollAnimation } from "@/components/scroll-animation";
@@ -7,8 +11,10 @@ import { ScrollAnimation } from "@/components/scroll-animation";
 export function ForwardNudge() {
   return (
     <section data-section="6" className="section-alt">
+    <section data-section="6" className="section-alt">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
         <ScrollAnimation>
+          <h2 className="heading-md">Curious what i&apos;ve built?</h2>
           <h2 className="heading-md">Curious what i&apos;ve built?</h2>
         </ScrollAnimation>
 
@@ -35,5 +41,6 @@ export function ForwardNudge() {
         </ScrollAnimation>
       </div>
     </section>
+  );
   );
 }

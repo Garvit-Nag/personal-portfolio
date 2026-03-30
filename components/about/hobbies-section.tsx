@@ -3,6 +3,7 @@
 import { ScrollAnimation, StaggerContainer, StaggerItem } from '@/components/scroll-animation'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { HOBBIES } from '@/lib/constants'
+import { HOBBIES } from '@/lib/constants'
 
 export function HobbiesSection() {
   return (

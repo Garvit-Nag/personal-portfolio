@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { ScrollAnimation } from '@/components/scroll-animation'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { SKILL_STEPS } from '@/lib/constants'
+import { SKILL_STEPS } from '@/lib/constants'
 
 export function SkillsSection() {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null)
@@ -29,6 +30,7 @@ export function SkillsSection() {
 
           {/* Left panel — philosophy steps */}
           <div>
+            {SKILL_STEPS.map((step, i) => (
             {SKILL_STEPS.map((step, i) => (
               <motion.div
                 key={i}
@@ -57,6 +59,7 @@ export function SkillsSection() {
           <div className="flex flex-col gap-3 h-full">
             {/* Row 1: Languages + Frontend */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[0, 1].map((i) => (
                 <div
                   key={i}
@@ -74,6 +77,7 @@ export function SkillsSection() {
                   ) : (
                     <div className="flex flex-wrap gap-1.5">
                       {SKILL_STEPS[i].chips.map((chip) => (
+                      {SKILL_STEPS[i].chips.map((chip) => (
                         <span key={chip} className="glass-chip">{chip}</span>
                       ))}
                     </div>
@@ -83,6 +87,7 @@ export function SkillsSection() {
             </div>
 
             {/* Row 2: Backend + Data */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[2, 3].map((i) => (
                 <div
@@ -100,6 +105,7 @@ export function SkillsSection() {
                     </p>
                   ) : (
                     <div className="flex flex-wrap gap-1.5">
+                      {SKILL_STEPS[i].chips.map((chip) => (
                       {SKILL_STEPS[i].chips.map((chip) => (
                         <span key={chip} className="glass-chip">{chip}</span>
                       ))}
@@ -124,6 +130,7 @@ export function SkillsSection() {
                 </p>
               ) : (
                 <div className="flex flex-wrap gap-1.5">
+                  {SKILL_STEPS[4].chips.map((chip) => (
                   {SKILL_STEPS[4].chips.map((chip) => (
                     <span key={chip} className="glass-chip">{chip}</span>
                   ))}

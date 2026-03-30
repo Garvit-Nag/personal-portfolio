@@ -1,17 +1,40 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import Link from 'next/link'
+import { Calendar, Github, ExternalLink, Info, X } from 'lucide-react'
 import { Calendar, Github, ExternalLink, Info, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ScrollAnimation } from '@/components/scroll-animation'
+import { ScrollAnimation } from '@/components/scroll-animation'
 import { Footer } from '@/components/footer'
+import { projects } from '@/lib/projects'
 import { projects } from '@/lib/projects'
 import { SectionHeading } from '@/components/ui/section-heading'
 
 export default function BuildPage() {
   const [activeTag, setActiveTag] = useState<string | null>(null)
+  const [activeTag, setActiveTag] = useState<string | null>(null)
 
+  const filteredProjects = useMemo(() => {
+    let result = projects
+    if (activeTag) {
+      result = result.filter(p => p.stack.includes(activeTag))
+    }
+    return result
+  }, [activeTag])
+
+  // Collect all unique stack tags from all projects
+  const availableTags = useMemo(() => {
+    const tags = new Set<string>()
+    projects.forEach(p => p.stack.forEach(t => tags.add(t)))
+    return Array.from(tags).sort()
+  }, [])
+
+  const handleTagClick = (tag: string) => {
+    setActiveTag(prev => prev === tag ? null : tag)
+  }
   const filteredProjects = useMemo(() => {
     let result = projects
     if (activeTag) {
@@ -67,17 +90,27 @@ export default function BuildPage() {
             className="font-sans font-normal text-[clamp(14px,1.8vw,16px)] leading-[1.9] text-[var(--text-muted)] mt-8 max-w-[600px]"
           >
             projects i've shipped over the past couple of years. some for hackathons, some just to learn.
+            projects i've shipped over the past couple of years. some for hackathons, some just to learn.
           </motion.p>
 
+          {/* Stack Tag Filter */}
           {/* Stack Tag Filter */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: 'easeOut', delay: 0.3 }}
             className="flex flex-wrap gap-2.5 mt-10 mb-10"
+            className="flex flex-wrap gap-2.5 mt-10 mb-10"
           >
             {availableTags.map((tag) => (
+            {availableTags.map((tag) => (
               <button
+                key={tag}
+                onClick={() => handleTagClick(tag)}
+                className={`filter-tag ${
+                  activeTag === tag
+                    ? 'filter-tag--active'
+                    : 'filter-tag--inactive'
                 key={tag}
                 onClick={() => handleTagClick(tag)}
                 className={`filter-tag ${
@@ -87,8 +120,18 @@ export default function BuildPage() {
                 }`}
               >
                 {tag}
+                {tag}
               </button>
             ))}
+            {activeTag && (
+              <button
+                onClick={() => setActiveTag(null)}
+                className="filter-tag filter-tag--inactive flex items-center gap-1.5"
+              >
+                <X size={12} strokeWidth={1.5} />
+                clear
+              </button>
+            )}
             {activeTag && (
               <button
                 onClick={() => setActiveTag(null)}
@@ -103,16 +146,19 @@ export default function BuildPage() {
           <AnimatePresence mode="wait">
             <motion.div
               key={`${activeTag || 'all'}`}
+              key={`${activeTag || 'all'}`}
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.97 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
             >
               {filteredProjects.map((project) => (
                 <motion.div
                   key={project.slug}
                   layout
+                  className="project-card group flex flex-col"
                   className="project-card group flex flex-col"
                 >
                   {/* Thumbnail */}
@@ -131,6 +177,7 @@ export default function BuildPage() {
                   </div>
 
                   {/* Body */}
+                  <div className="p-5 lg:p-6 flex flex-col flex-1">
                   <div className="p-5 lg:p-6 flex flex-col flex-1">
                     {/* Top row */}
                     <div className="flex items-center justify-between">
@@ -151,6 +198,8 @@ export default function BuildPage() {
 
                     {/* Spacer to push links to bottom with minimum gap */}
                     <div className="flex-1 min-h-5" />
+                    {/* Spacer to push links to bottom with minimum gap */}
+                    <div className="flex-1 min-h-5" />
 
                     {/* Links */}
                     <div className="flex items-center gap-5 pt-5 border-t border-[var(--border-low)]">
@@ -159,7 +208,9 @@ export default function BuildPage() {
                           href={project.github}
                           target="_blank"
                           className="card-link"
+                          className="card-link"
                         >
+                          <Github size={13} strokeWidth={1.5} />
                           <Github size={13} strokeWidth={1.5} />
                           code
                         </Link>
@@ -169,7 +220,9 @@ export default function BuildPage() {
                           href={project.live}
                           target="_blank"
                           className="card-link"
+                          className="card-link"
                         >
+                          <ExternalLink size={13} strokeWidth={1.5} />
                           <ExternalLink size={13} strokeWidth={1.5} />
                           live
                         </Link>
@@ -177,7 +230,9 @@ export default function BuildPage() {
                       <Link
                         href={`/build/${project.slug}`}
                         className="card-link ml-auto"
+                        className="card-link ml-auto"
                       >
+                        <Info size={13} strokeWidth={1.5} />
                         <Info size={13} strokeWidth={1.5} />
                         view details
                       </Link>

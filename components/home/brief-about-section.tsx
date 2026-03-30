@@ -5,6 +5,7 @@ import { ArrowRight, ChevronRight, Mail } from 'lucide-react'
 import { ScrollAnimation } from '@/components/scroll-animation'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { SNAPSHOTS } from '@/lib/constants'
+import { SNAPSHOTS } from '@/lib/constants'
 
 export function BriefAboutSection() {
   return (
@@ -15,6 +16,7 @@ export function BriefAboutSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: heading + CTAs */}
+          <div className="text-center lg:text-left">
           <div className="text-center lg:text-left">
             <ScrollAnimation>
               <SectionHeading label="the person" />
@@ -34,7 +36,9 @@ export function BriefAboutSection() {
 
           {/* Right: plain underlined items with geometric accents + scale hover */}
           <ScrollAnimation delay={1} className="block">
+          <ScrollAnimation delay={1} className="block">
             <div className="flex flex-col">
+              {SNAPSHOTS.map((item) => (
               {SNAPSHOTS.map((item) => (
                 <div
                   key={item.label}

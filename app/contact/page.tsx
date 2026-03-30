@@ -1,5 +1,15 @@
 "use client";
+"use client";
 
+import { useState } from "react";
+import Link from "next/link";
+import { Calendar } from "lucide-react";
+import { PiPaperPlaneTilt } from "react-icons/pi";
+import { motion } from "framer-motion";
+import { ScrollAnimation } from "@/components/scroll-animation";
+import { Footer } from "@/components/footer";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { CONTACT_LINKS } from "@/lib/constants";
 import { useState } from "react";
 import Link from "next/link";
 import { Calendar } from "lucide-react";
@@ -17,15 +27,23 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    e.preventDefault();
     // Handle form submission
+  };
   };
 
   return (
     <>
       {/* Header Section */}
+      <section
       <section
         data-section="1"
         className="min-h-[60vh] flex items-center bg-transparent pt-24 pb-24"
@@ -35,6 +53,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
           >
             <SectionHeading label="reach out" />
           </motion.div>
@@ -42,6 +61,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
             transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
           >
             <h1 className="font-sans font-bold text-[clamp(36px,5.5vw,76px)] text-[var(--text-heading)] tracking-[-0.02em] leading-[1.1]">
@@ -55,6 +75,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: "easeOut", delay: 0.2 }}
             transition={{ duration: 0.55, ease: "easeOut", delay: 0.2 }}
             className="mt-10 max-w-[540px]"
           >
@@ -73,11 +94,14 @@ export default function ContactPage() {
 
       {/* Links + Form Section */}
       <section data-section="2" className="section-alt">
+      <section data-section="2" className="section-alt">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
             {/* Left - Contact Links + Schedule */}
             <div className="flex flex-col">
               <ScrollAnimation>
+                {CONTACT_LINKS.map((link) => (
                 {CONTACT_LINKS.map((link) => (
                   <Link
                     key={link.label}
@@ -163,6 +187,9 @@ export default function ContactPage() {
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
                         }
+                        onChange={(e) =>
+                          setFormData({ ...formData, name: e.target.value })
+                        }
                         className="form-input"
                         required
                       />
@@ -175,6 +202,9 @@ export default function ContactPage() {
                         type="email"
                         placeholder="your email"
                         value={formData.email}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
@@ -193,6 +223,9 @@ export default function ContactPage() {
                         onChange={(e) =>
                           setFormData({ ...formData, subject: e.target.value })
                         }
+                        onChange={(e) =>
+                          setFormData({ ...formData, subject: e.target.value })
+                        }
                         className="form-input"
                         autoComplete="off"
                       />
@@ -204,6 +237,9 @@ export default function ContactPage() {
                       <textarea
                         placeholder="what's on your mind"
                         value={formData.message}
+                        onChange={(e) =>
+                          setFormData({ ...formData, message: e.target.value })
+                        }
                         onChange={(e) =>
                           setFormData({ ...formData, message: e.target.value })
                         }
@@ -231,5 +267,6 @@ export default function ContactPage() {
 
       <Footer />
     </>
+  );
   );
 }
